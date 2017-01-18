@@ -1,0 +1,37 @@
+#include <AFMotor.h>
+
+AF_DCMotor motor1(1);
+void setup() {
+  // set the slaveSelectPins as an output:
+  motor1.setSpeed(200);
+ 
+  motor1.run(RELEASE);
+Serial.begin(9600);
+Serial.println("Hello python.");
+}
+
+void loop() {
+   String t = Serial.readString();
+   int idx = t.indexOf("012",0);
+    if(idx != -1){
+      Serial.println("down");
+       motor1.run(RELEASE);
+        char temp[5];
+        String pp = t.substring(5,9);
+        pp.toCharArray(temp,5);
+        int d = atoi(temp);      
+    }
+    else{
+      idx = t.indexOf("013",0);
+     if(idx != -1){
+      Serial.println("up");
+      char temp[2];
+        String pp = t.substring(5,6);
+        pp.toCharArray(temp,2);
+        int d = atoi(temp);
+            motor1.run(FORWARD);
+               
+    }
+     }
+     delay(1000);
+}
