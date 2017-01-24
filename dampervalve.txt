@@ -3,6 +3,15 @@
 //This program generates a 1khz (target) square wave
 //The actual wave is closer to 975HZ, due to various delays.
 ///(c) 2014-2015 Visgence Inc
+	
+//5	2736
+//0	2055
+//1	2191.2
+//2	2327.4
+//3	2463.6
+//4	2599.8
+//5	2736
+
 /////////////////////////////////////////////////////////////////////////////////
 #include <SPI.h>
 #define SS1 (1 << 2) //Slave Select 1 PORTB
